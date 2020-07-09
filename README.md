@@ -7,7 +7,7 @@ execution by [AWX].
 
 This project contains one Ansible role:-
 
-*   **mimi-apps**
+*   **mini-apps**
 
 >   Note: The Role is designed to be executed from within our AWX server
     where credentials for the cluster (Kubernetes) reside. If you're not
@@ -25,4 +25,4 @@ in the role's `defaults/main.yaml` and less common variables in
 
 [awx]: https://github.com/ansible/awx
 [infrastructure]: https://github.com/InformaticsMatters/ansible-infrastructure
-[mini-apps]: https://gitlab.com/informaticsmatters/react-sci-components
+[mini-apps]: https://github.com/informaticsmatters/react-sci-components
