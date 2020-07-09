@@ -3,7 +3,7 @@ kind: Ingress
 apiVersion: networking.k8s.io/v1beta1
 metadata:
   name: mini-apps
-  namespace: {{ ms_namespace }}
+  namespace: {{ ma_namespace }}
   annotations:
     ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: "nginx"
