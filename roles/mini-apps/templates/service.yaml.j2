@@ -1,0 +1,13 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: mini-apps
+  namespace: {{ ma_namespace }}
+spec:
+  selector:
+    name: mini-apps
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80

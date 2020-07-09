@@ -1,0 +1,14 @@
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: ma-sa
+  namespace: "{{ ma_namespace }}"
+roleRef:
+  kind: Role
+  name: ma-psp-unrestricted
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  name: mini-apps
+  namespace: "{{ ma_namespace }}"

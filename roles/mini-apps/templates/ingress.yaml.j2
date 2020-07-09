@@ -1,0 +1,23 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1beta1
+metadata:
+  name: mini-apps
+  namespace: {{ ms_namespace }}
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-nginx-{{ w_cert_issuer|lower }}"
+spec:
+  tls:
+  - hosts:
+    - {{ ma_hostname }}
+    secretName: mini-apps-tls
+  rules:
+  - host: {{ ma_hostname }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mini-apps
+          servicePort: http

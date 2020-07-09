@@ -1,0 +1,7 @@
+---
+
+ma_namespace: mini-apps
+ma_sa_psp: im-core-unrestricted
+
+ma_node_purpose: application
+ma_pod_ready_timeout: 600

@@ -1,0 +1,69 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: mini-apps
+  namespace: {{ ma_namespace }}
+spec:
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      name: mini-apps
+  template:
+    metadata:
+      labels:
+        name: mini-apps
+    spec:
+      serviceAccountName: mini-apps
+
+      # A 'preferred' (not guaranteed)
+      # node selection affinity...
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: purpose
+                operator: In
+                values:
+                - {{ ma_node_purpose }}
+
+      containers:
+      - name: mini-apps
+        image: informaticsmatters/im-mini-apps:{{ ma_image_tag }}
+{% if ma_image_tag in ['latest', 'stable'] %}
+        imagePullPolicy: Always
+{% else %}
+        imagePullPolicy: IfNotPresent
+{% endif %}
+        ports:
+        - containerPort: 80
+          name: http
+        env:
+        # CICD_TRIGGER_ID is variable whose value is used to force
+        # a redeployment of the underlying containers. This is used in
+        # situations where the origin image's tag may not have changed
+        # (e.g. it's 'latest' or 'stable') but a new build is expected to
+        # be available. Without changing something in the Deployment spec
+        # a roll-out will not occur if the tag has not changed.
+        - name: CICD_TRIGGER_ID
+          value: '{{ ansible_date_time.iso8601_micro }}'
+        readinessProbe:
+          httpGet:
+            port: 80
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+        livenessProbe:
+          httpGet:
+            port: 80
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+        resources:
+          limits:
+            cpu: 500m
+            memory: 250Mi
+          requests:
+            cpu: 100m
+            memory: 250Mi

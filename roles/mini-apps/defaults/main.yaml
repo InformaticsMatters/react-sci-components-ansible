@@ -1,0 +1,9 @@
+---
+
+# Set to 'absent' to undeploy
+ma_state: present
+
+# Main application variables
+ma_hostname: mini-apps.informaticsmatters.com
+ma_image_tag: latest
+ma_cert_issuer: production

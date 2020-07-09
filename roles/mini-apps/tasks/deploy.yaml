@@ -1,0 +1,32 @@
+---
+
+# Create the namespace and other basic materials
+
+- name: Create namespace ({{ ma_namespace }})
+  k8s:
+    definition: "{{ lookup('template', 'namespace.yaml.j2') }}"
+    wait: yes
+
+- name: Create namespace material
+  k8s:
+    definition: "{{ lookup('template', '{{ item }}.yaml.j2') }}"
+    wait: yes
+  loop:
+  - serviceaccount
+  - role
+  - rolebinding-ma-sa
+
+- name: Relax {{ ma_namespace }} 'default' service account (for cert-manager)
+  k8s:
+    definition: "{{ lookup('template', 'rolebinding-default-sa.yaml.j2') }}"
+    wait: yes
+
+- name: Deploy Application ({{ ma_hostname }})
+  k8s:
+    definition: "{{ lookup('template', '{{ item }}.yaml.j2') }}"
+    wait: yes
+    wait_timeout: "{{ ma_pod_ready_timeout }}"
+  loop:
+  - deployment
+  - service
+  - ingress
