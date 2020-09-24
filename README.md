@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.com/InformaticsMatters/react-sci-components-ansible.svg?branch=master)](https://travis-ci.com/InformaticsMatters/react-sci-components-ansible)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/InformaticsMatters/react-sci-components-ansible)
 
+[![CodeFactor](https://www.codefactor.io/repository/github/informaticsmatters/react-sci-components-ansible/badge)](https://www.codefactor.io/repository/github/informaticsmatters/react-sci-components-ansible)
+
 A playbook and Role to deploy the [Mini-Apps] website application, suitable for
 execution by [AWX].
 
