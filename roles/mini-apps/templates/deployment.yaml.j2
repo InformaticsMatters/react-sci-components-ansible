@@ -32,7 +32,7 @@ spec:
 
       containers:
       - name: mini-apps
-        image: informaticsmatters/im-mini-apps:{{ ma_image_tag }}
+        image: {{ ma_image_name }}:{{ ma_image_tag }}
 {% if ma_image_tag in ['latest', 'stable'] %}
         imagePullPolicy: Always
 {% else %}
