@@ -5,6 +5,7 @@ ma_state: present
 
 # Main application variables
 ma_hostname: mini-apps.informaticsmatters.com
+ma_hostname_path: /
 ma_image_name: informaticsmatters/im-mini-apps
 ma_image_tag: latest
 ma_cert_issuer: production

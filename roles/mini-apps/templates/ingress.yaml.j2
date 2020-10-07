@@ -17,7 +17,7 @@ spec:
   - host: {{ ma_hostname }}
     http:
       paths:
-      - path: /
+      - path: {{ ma_hostname_path }}
         backend:
           serviceName: mini-apps
           servicePort: http
