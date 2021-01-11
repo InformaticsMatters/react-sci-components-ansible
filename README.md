@@ -1,6 +1,6 @@
 # React Mini-Apps (Ansible)
 
-![yamllint](https://github.com/InformaticsMatters/react-sci-components-ansible/workflows/yamllint/badge.svg)
+![yamllint](https://github.com/InformaticsMatters/react-sci-components-ansible/workflows/lint/badge.svg)
 
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/InformaticsMatters/react-sci-components-ansible)
 
