@@ -1,6 +1,7 @@
 # React Mini-Apps (Ansible)
 
-[![Build Status](https://travis-ci.com/InformaticsMatters/react-sci-components-ansible.svg?branch=master)](https://travis-ci.com/InformaticsMatters/react-sci-components-ansible)
+![yamllint](https://github.com/InformaticsMatters/react-sci-components-ansible/workflows/yamllint/badge.svg)
+
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/InformaticsMatters/react-sci-components-ansible)
 
 [![CodeFactor](https://www.codefactor.io/repository/github/informaticsmatters/react-sci-components-ansible/badge)](https://www.codefactor.io/repository/github/informaticsmatters/react-sci-components-ansible)
