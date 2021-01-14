@@ -5,6 +5,8 @@
 - name: Check variables
   assert:
     that:
+    - ma_hostname|string|length > 0
+    - ma_hostname != 'SetMe'
     - ma_hostname_path|string|length > 0
     - ma_hostname_path|string|regex_search('^/')
 
