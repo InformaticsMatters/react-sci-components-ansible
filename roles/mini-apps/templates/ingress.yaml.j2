@@ -5,9 +5,14 @@ metadata:
   name: mini-apps
   namespace: {{ ma_namespace }}
   annotations:
-    ingress.kubernetes.io/rewrite-target: /
     kubernetes.io/ingress.class: "nginx"
     cert-manager.io/cluster-issuer: "letsencrypt-nginx-{{ ma_cert_issuer|lower }}"
+    nginx.ingress.kubernetes.io/rewrite-target: {{ ma_hostname_path }}/$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    # For a full set of nginx annotations see...
+    # https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/annotations/
 spec:
   tls:
   - hosts:
@@ -17,7 +22,7 @@ spec:
   - host: {{ ma_hostname }}
     http:
       paths:
-      - path: /{{ ma_hostname_path }}
+      - path: {{ ma_hostname_path }}(/|$)(.*)
         backend:
           serviceName: mini-apps
           servicePort: http

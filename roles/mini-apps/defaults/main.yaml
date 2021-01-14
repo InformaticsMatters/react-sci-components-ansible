@@ -5,7 +5,8 @@ ma_state: present
 
 # Main application variables
 ma_hostname: mini-apps.informaticsmatters.com
-ma_hostname_path: ''
+# The path ('/' or '/<path>')
+ma_hostname_path: '/pose-viewer'
 ma_image_name: informaticsmatters/im-mini-apps
 ma_image_tag: latest
 ma_cert_issuer: production
