@@ -9,3 +9,10 @@ ma_hostname_path: '/pose-viewer'
 ma_image_name: informaticsmatters/im-mini-apps
 ma_image_tag: latest
 ma_cert_issuer: production
+
+# A pull-secret for public images pulled from DockerHub.
+# If set this is the base-64 string that can be used as the value
+# in our Kubernetes Secret as the .dockerconfigjson value.
+# If set it is applied to the ServiceAccount in the namespace
+# and applied to Pods that use that namespace.
+ma_dockerhub_pullsecret: ''
