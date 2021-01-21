@@ -8,6 +8,7 @@ yaml-files:
 ignore: |
   .github/
   roles/mini-apps/templates/deployment.yaml.j2
+  roles/mini-apps/templates/serviceaccount.yaml.j2
 
 rules:
   indentation:
