@@ -4,7 +4,7 @@
 ma_state: present
 
 ma_hostname: SetMe
-ma_hostname_path: '/pose-viewer'
+ma_hostname_path: 'pose-viewer'
 
 ma_image_name: informaticsmatters/im-mini-apps
 ma_image_tag: latest
