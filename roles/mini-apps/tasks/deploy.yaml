@@ -44,6 +44,7 @@
     wait: yes
     wait_timeout: "{{ ma_pod_ready_timeout }}"
   loop:
+  - configmap
   - deployment
   - service
   - ingress

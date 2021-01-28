@@ -1,6 +1,5 @@
 ---
 
-ma_namespace: mini-apps
 ma_sa_psp: im-core-unrestricted
 
 ma_node_purpose: application

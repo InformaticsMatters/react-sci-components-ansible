@@ -3,6 +3,8 @@
 # Set to 'absent' to undeploy
 ma_state: present
 
+ma_namespace: pose-viewer
+
 ma_hostname: SetMe
 ma_hostname_path: 'pose-viewer'
 
@@ -10,9 +12,28 @@ ma_image_name: informaticsmatters/im-mini-apps
 ma_image_tag: latest
 ma_cert_issuer: production
 
+# Realm
+ma_realm: squonk
+ma_keycloak_client_id: pose-viewer
+
+# Locations (hostnames and paths) for the various services
+# We need values for the depict and the data manager API
+ma_location:
+  depict:
+    hostname: squonk.it
+    path: /fragnet-depict-api
+  api:
+    hostname: squonk.it
+    path: /data-manager-api
+
 # A pull-secret for public images pulled from DockerHub.
 # If set this is the base-64 string that can be used as the value
 # in our Kubernetes Secret as the .dockerconfigjson value.
 # If set it is applied to the ServiceAccount in the namespace
 # and applied to Pods that use that namespace.
 ma_dockerhub_pullsecret: ''
+
+# Provided by our chosen AWX/Tower Keycloak credentials
+# (keycloak credential type)...
+
+keycloak_server_url: "{{ lookup('env', 'KEYCLOAK_SERVER_URL') }}"

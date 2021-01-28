@@ -67,3 +67,15 @@ spec:
           requests:
             cpu: 100m
             memory: 250Mi
+        volumeMounts:
+        - mountPath: /usr/share/nginx/html/config.json
+          name: ui-config
+          subPath: config.json
+        - mountPath: /usr/share/nginx/html/keycloak.json
+          name: ui-config
+          subPath: keycloak.json
+
+      volumes:
+      - name: ui-config
+        configMap:
+          name: ui
